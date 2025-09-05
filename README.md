@@ -1,3 +1,3 @@
-Project Overview
+## Project Overview
 
 This project is a CRUD (Create, Read, Update, Delete) operation web application designed for efficient data manipulation and management. It provides a seamless interface to perform essential database operations with an intuitive user experience. The application is built using React.js for the front-end to ensure a responsive and dynamic UI, Node.js for the back-end to handle API requests and server-side logic, and SQL as the database to store and manage structured data efficiently. This project demonstrates a full-stack implementation, focusing on clean architecture, RESTful API integration, and real-time data updates to simplify database interaction.
