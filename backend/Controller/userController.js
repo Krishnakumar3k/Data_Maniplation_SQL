@@ -28,6 +28,16 @@ const userController = {
                 res.status(201).json({ message: "User registered successfully" });
             });
         });
+    },
+
+    getAllUsers: (req, res) => {
+        userModel.getUser(req, (err, users) => {
+            if (err) {
+                console.error("Database Error:", err);
+                return res.status(500).json({ message: "Database error" });
+            }
+            res.status(200).json(users);
+        });
     }
 };
 

@@ -16,3 +16,14 @@ font-size: 20px;
     font-weight: 600;
     margin: 5px 0;
 }
+
+/* Add subtle vertical lines between columns */
+.custom-table th,
+.custom-table td {
+  border-right: 1px solid rgba(0, 0, 0, 0.1); /* Transparent line */
+}
+
+.custom-table th:last-child,
+.custom-table td:last-child {
+  border-right: none; /* Remove last column border */
+}
