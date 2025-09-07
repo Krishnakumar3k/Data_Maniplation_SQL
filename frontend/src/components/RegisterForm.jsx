@@ -1,25 +1,38 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const RegisterForm = () => {
     const [inputval, setinputval] = useState({
-        id: "",
+
         name: "",
         designation: "",
         email: "",
         phone: "",
         address: "",
-        message: "",
+      
     });
 
-    const setdata = (e) => {   // Function to handle input changes to show input values in  components of hooks 
-        const { name, value } = e.target;   // or we can use e.target.name and e.target.value
-       setinputval((preval) => {
-            return {
-                ...preval,
-                [name]: value,
-            };
-        });
+    // Handle input changes
+    const setdata = (e) => {
+        const { name, value } = e.target;
+        setinputval((preval) => ({
+            ...preval,
+            [name]: value,
+        }));
+    };
+
+    // API call to send data to backend
+    const usercreate = async (e) => {
+        e.preventDefault(); // prevent page reload
+        try {
+            const response = await axios.post("http://localhost:8080/api/create", inputval);
+            console.log("User created:", response.data);
+            alert("User registered successfully!");
+        } catch (error) {
+            console.error("Error creating user:", error);
+            alert("Failed to register user!");
+        }
     };
 
     return (
@@ -32,19 +45,9 @@ const RegisterForm = () => {
             </div>
 
             <div className="row justify-content-center">
-                <form className="col-lg-10 col-md-12">
+                <form className="col-lg-10 col-md-12" onSubmit={usercreate}>
                     <div className="row g-4">
-                        <div className="form-group col-lg-6 col-md-6 col-12">
-                            <label htmlFor="id" className="form-label">ID</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                name="id"
-                                value={inputval.id}
-                                onChange={setdata}
-                                placeholder="Enter your ID"
-                            />
-                        </div>
+                       
 
                         <div className="form-group col-lg-6 col-md-6 col-12">
                             <label htmlFor="name" className="form-label">Name</label>
@@ -104,18 +107,6 @@ const RegisterForm = () => {
                                 onChange={setdata}
                                 placeholder="Enter your address"
                             />
-                        </div>
-
-                        <div className="form-group col-12">
-                            <label htmlFor="message" className="form-label">Message</label>
-                            <textarea
-                                name="message"
-                                className="form-control"
-                                rows="4"
-                                value={inputval.message}
-                                onChange={setdata}
-                                placeholder="Enter a message or note"
-                            ></textarea>
                         </div>
 
                         <div className="col-12 text-end">

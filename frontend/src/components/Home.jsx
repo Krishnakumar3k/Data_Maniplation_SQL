@@ -16,7 +16,7 @@ const Home = () => {
                 <table className="table table-bordered">
                     <thead className="table-dark">
                         <tr>
-                            <th scope="col">Id</th>
+
                             <th scope="col">Name</th>
                             <th scope="col">Designation</th>
                             <th scope="col">Email</th>
@@ -26,7 +26,7 @@ const Home = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        {/* <tr>
                             <th scope="row">1</th>
                             <td>Krishna</td>
                             <td>SDE</td>
@@ -46,25 +46,7 @@ const Home = () => {
                             </td>
                         </tr>
 
-                         <tr>
-                            <th scope="row">1</th>
-                            <td>Krishna</td>
-                            <td>SDE</td>
-                            <td>kk@gmail.com</td>
-                            <td>6201654835</td>
-                            <td>Delhi</td>
-                            <td className="d-flex justify-content-end gap-2 flex-wrap">
-                                 <button className="btn btn-success text-nowrap me-2">
-                                    <RemoveRedEyeIcon />
-                                </button>
-                                <button className="btn btn-primary text-nowrap me-2">
-                                    <CreateIcon />
-                                </button>
-                                <button className="btn btn-danger text-nowrap">
-                                    <DeleteIcon />
-                                </button>
-                            </td>
-                        </tr>
+                      */}
                     </tbody>
                 </table>
             </div>
